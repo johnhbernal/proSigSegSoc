@@ -150,8 +150,7 @@ selector(document).ready(function() {
 		 * @returns
 		 */
 		function updateUserByAjax(url) {
-			selector.ajax({
-				
+			selector.ajax({				
 				"processing": true,
 				"serverSide": true,
 				type:'get',
