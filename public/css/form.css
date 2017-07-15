@@ -1,0 +1,17 @@
+.requerido:after {
+	content: "*";
+	color: red;
+	font-size: 18px;
+	margin-right: 2px;
+    font-weight: bold !important;
+	
+}
+img.center {
+    display: block;
+    margin: 0 auto;
+}
+#logoImagen{
+	 width: 10%; 
+	 height: 10%;
+/* 	 background-image:url(“{{ asset('img/imgLogin/Boton-Ejemplo.jpg') }}”); */
+}
