@@ -29,7 +29,9 @@ selector(document).ready(function() {
                     "data": "id",
                     "render": function(data, type, row, meta){
                        if(type === 'display'){
-                           data = '<a href="' + data + '" class="showUser">' + data + '</a>';
+                    	   
+//                           data = '<a href="' + data + '" class="showUser" id='+data+'>' + data + '</a>';
+                    	   data = '<a id='+data+' href="' + data + '" class="showUser" id='+data+'>' + data + '</a>';
                        }
 
                        return data;
@@ -137,7 +139,8 @@ selector(document).ready(function() {
 		        	table.ajax.reload();
 	            },
 	            error: function (response) {
-	            	alert('error mostrado al recibir en el ajax  '+ response);
+//	            	alert('error mostrado al recibir en el ajax  '+ response);
+	            	showAlert(JSON.stringify(response));
 	                console.log( 'error'+response);
 	                table.ajax.reload();
 	            },
@@ -163,8 +166,9 @@ selector(document).ready(function() {
 
 				},
 				error: function (response) {
-					alert('error mostrado al recibir en el ajax  '+ response);
-					console.log( 'error'+response);
+//					alert('error mostrado al recibir en el ajax  '+ response);
+					showAlert(JSON.stringify(response));
+					console.log( 'error'+response.msg);
 //					table.ajax.reload();
 				},
 				
@@ -192,6 +196,68 @@ selector(document).ready(function() {
 		     
 	
 		});	  //end function modify user 
+		
+		
+		/**
+		 * funcion utilizada para redireccionar y mostrar los datos del usuario sin modificar
+		 * @param url
+		 * @returns
+		 */
+		function showUserByAjax(url) {
+			
+			alert('llego a showUser '+url);
+			return false;
+			
+			selector.ajax({				
+				"processing": true,
+				"serverSide": true,
+				type:'get',
+				url: url,
+				success: function (response) {
+					
+					
+					alert('llego = '+reponse);
+					console.log('llego = '+reponse);
+					
+					  document.open();
+					    document.write(response);
+					    document.close();
+
+				},
+				error: function (response) {
+//					alert('error mostrado al recibir en el ajax  '+ response);
+					showAlert(JSON.stringify(response));
+					console.log( 'error'+response.msg);
+//					table.ajax.reload();
+				},
+				
+				
+			});
+		}
+		
+		
+		/* Función utilizada para mostrar la informacion del  usuario */
+		selector("body").on("click",".showUser",function(){
+			
+			
+			var id = selector(this).attr('id');
+			
+			console.log('valor de id '+id);
+			
+			var url='./showUser/'+id;
+			
+			
+//			console.log(url);
+//			alert(url);
+//			return false;
+			
+			showUserByAjax(url)
+			
+			
+			
+			
+			
+		});	  //end function show user 
 		
 		
 		
@@ -231,7 +297,7 @@ selector(document).ready(function() {
 			    '</div>',
 			    buttons: {
 	    	        cancelAction: {
-	    	            text: 'Cancelar',
+	    	            text: 'Cerrar',
 	    	            btnClass: 'btn-success disabled',
 	    	            action: function () {
 	    	        	

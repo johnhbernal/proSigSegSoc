@@ -88,10 +88,9 @@ class UsuarioController extends Controller {
 		return redirect ()->route ( 'usuarios.index' )->with ( 'info', 'El usuario fue actualizado' );
 
 	}
-	public function edit($id) {
-		// $usuario = Usuario::where ( 'CONS_USUARIO', '=', $id )->first ();
+	public static function edit($id) {
 		$usuario = Usuario::find ( $id );
-		return view ( 'usuarios.edit', compact ( 'usuario' ) );
+		return view ( 'usuarios.edit', compact ( 'usuario' ) );	
 	}
 	public function create() {
 		return view ( 'usuarios.create' );

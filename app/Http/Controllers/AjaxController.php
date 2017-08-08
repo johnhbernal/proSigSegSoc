@@ -134,12 +134,36 @@ class AjaxController extends Controller {
 			
 			try {
 				
-				return UsuarioController::show ( $id );
+// 				return UsuarioController::show ( $id );
+				return UsuarioController::edit ( $id );
 
 				
 			} catch ( \Exception $e ) {
-				// return response()->json($e->getMessage());
-				return response ()->json ( 'error en catch AjaxController' + $e->getCode () );
+				return response()->json($e->getMessage());
+// 				return response ()->json ( 'error en catch AjaxController' + $e->getCode () );
+			}
+			// $usuario = Usuario::find ( $id );
+		
+	}
+	/**
+	 * Funcion utilizada para mostrar los datos del usuario
+	 * @param unknown $id
+	 * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory|unknown
+	 */
+	public function mostrarUsuario( $id) {
+	
+			
+			try {
+				
+				
+				return 'llego aqui';
+				return UsuarioController::show ( $id );
+// 				return UsuarioController::edit ( $id );
+
+				
+			} catch ( \Exception $e ) {
+				return response()->json($e->getMessage());
+// 				return response ()->json ( 'error en catch AjaxController' + $e->getCode () );
 			}
 			// $usuario = Usuario::find ( $id );
 		
