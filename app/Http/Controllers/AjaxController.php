@@ -150,13 +150,12 @@ class AjaxController extends Controller {
 	 * @param unknown $id
 	 * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory|unknown
 	 */
-	public function mostrarUsuario( $id) {
-	
+	public static function mostrarUsuario( $id) {
 			
 			try {
 				
 				
-				return 'llego aqui';
+// 				return 'llego aqui';
 				return UsuarioController::show ( $id );
 // 				return UsuarioController::edit ( $id );
 

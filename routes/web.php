@@ -48,7 +48,14 @@ Route::prefix ( 'admin' )->group ( function () {
 	Route::get('/datatable', 'AjaxController@getUsuarios');
 	Route::get('/deleteUsuarios/{id}', 'AjaxController@deleteUsuario');
 	Route::get('/updateUser/{id}', 'AjaxController@updateUsuario');
-	Route::get('/showUser/{id}', 'AjaxController@mostrarUsuario');
+	
+	Route::get('/showUser/{id}', function ($id) {
+		return 'User '.$id;
+	});
+	
+	
+// 	Route::get('/showUser/{id}', 'AjaxController@mostrarUsuario');
+
 // 	Route::get('/ajaxDataTableUsuarios', function () {
 // 		$users = Usuario::select(['id','NUM_IDENTIFICACION'])->get();
 // 		return Response::json(Datatables::of($users)->make());

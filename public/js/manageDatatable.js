@@ -216,8 +216,8 @@ selector(document).ready(function() {
 				success: function (response) {
 					
 					
-					alert('llego = '+reponse);
-					console.log('llego = '+reponse);
+					alert('llego sera este = '+reponse);
+					console.log('llego sera este = '+reponse);
 					
 					  document.open();
 					    document.write(response);
@@ -244,12 +244,12 @@ selector(document).ready(function() {
 			
 			console.log('valor de id '+id);
 			
-			var url='./showUser/'+id;
+			var url='.../showUser/'+id;
 			
 			
-//			console.log(url);
-//			alert(url);
-//			return false;
+			console.log(url);
+			alert(url);
+			return false;
 			
 			showUserByAjax(url)
 			
