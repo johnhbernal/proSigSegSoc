@@ -249,7 +249,7 @@ selector(document).ready(function() {
 			
 			console.log(url);
 			alert(url);
-			return false;
+//			return false;
 			
 			showUserByAjax(url)
 			
